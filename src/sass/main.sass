@@ -4,13 +4,15 @@
 	box-sizing: border-box
 	outline: none!important
 
+$main-color: #434343
+
 html 
 	height: 100%
 
 body
 	height: 100%
 	font-size: 14px
-	color: #434343
+	color: $main-color
 	background: #f1f1f1
 	font-family: "Ubuntu",sans-serif
 
@@ -44,19 +46,6 @@ ul
 	width: 100%
 	margin: 0 auto
 
-.f-logo 
-	width: 70px
-	height: 60px
-	background: url('../img/logo.png')no-repeat 0 0
-	background-size: contain
-	margin: 5px 10px 5px 0
-	vertical-align: middle
-
-	a 
-		height: 100%
-		width: 100%
-		display: block
-
 .f-logo-title
 	vertical-align: middle
 	font-size: 25px
@@ -72,8 +61,6 @@ ul
 		position: absolute
 		width: 12px
 		height: 12px
-		background: url('../img/search.png')no-repeat
-		background-size: cover 
 		top: 4px
 		left: 4px
 		z-index: 0
@@ -96,13 +83,13 @@ ul
 		width: 150px
 
 .f-search-input::-webkit-input-placeholder 
-  color: #434343
+  color: $main-color
 
 .f-search-input::-moz-placeholder 
-  color: #434343
+  color: $main-color
 
 .f-search-input:-moz-placeholder 
-  color: #434343
+  color: $main-color
 
 .f-reg-block
 	margin-top: 25px
@@ -158,10 +145,10 @@ ul
 	display: inline-block
 
 .f-post 
-    margin-bottom: 45px
+	margin-bottom: 45px
 
-    &:last-child
-    	margin-bottom:0
+	img
+		width: 100%
 
 .f-rate
 	margin-right: 10px
@@ -169,7 +156,6 @@ ul
 .f-rate-btn 
 	width: 18px
 	height: 18px
-	background: url("../img/plus.png") no-repeat 0 0
 	opacity: 0.4
 	border: none
 	background-size: contain
@@ -181,7 +167,6 @@ ul
 		opacity: 1
 
 .f-rate-minus
-	background: url("../img/minus.png") no-repeat 0 0
 	background-size: contain
 
 .f-rate-count
@@ -198,7 +183,7 @@ ul
 	padding-right: 10px
 
 	a
-		color: #434343
+		color: $main-color
 
 		&:hover
 			text-decoration: none
@@ -216,8 +201,23 @@ ul
 .f-to-top._show
 	opacity: 1
 
+.main-bg
+	background: $main-color!important
+
 footer 
-    height: 120px
-    background: url('../img/footer.png')no-repeat center 10px #434343
-    width: 100%
-    background-size: 15%
+	background: $main-color
+
+.f-post-bot 
+	display: flex
+	flex-direction: row
+	justify-content: left
+	align-items: center
+
+	.f-rate
+		display: flex
+		flex-direction: row
+		justify-content: left
+		align-items: center
+
+.main-container.container
+	margin: 50px auto

@@ -21,6 +21,10 @@ ul {
   list-style: none;
 }
 
+.main-color {
+  background: #434343!important;
+}
+
 .clearfix:after {
   clear: both;
   content: '';
@@ -190,6 +194,10 @@ ul {
   margin-bottom: 45px;
 }
 
+.f-post img {
+  width: 100%;
+}
+
 .f-post:last-child {
   margin-bottom: 0;
 }
@@ -259,9 +267,4 @@ ul {
   opacity: 1;
 }
 
-footer {
-  height: 120px;
-  background: url("../img/footer.png") no-repeat center 10px #434343;
-  width: 100%;
-  background-size: 15%;
-}
+/*#434343*/
