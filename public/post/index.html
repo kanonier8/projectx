@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Хуендс</title>
+	<link rel="stylesheet" href="/files/dist/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<script src="https://vk.com/js/api/openapi.js?152" type="text/javascript"></script>
+
+</head>
+<body>
+	<nav>
+		<div class="nav-wrapper main-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col s10 offset-s1">
+						<a href="#" class="brand-logo">Logo</a>
+						<ul id="nav-mobile" class="right hide-on-med-and-down">
+							<li><a href="sass.html">Sass</a></li>
+							<li><a href="badges.html">Components</a></li>
+							<li><a href="collapsible.html">JavaScript</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="container main-container">
+		<div class="js-post-tmp">
+			<div class="row">
+				<div class="f-post col s6 offset-s1" data-id="{{_id}}">
+					<div class="f-title"><a href="/post/{{url}}">{{title}}</a></div>
+					<div class="f-post-body">
+						{{#if img}}
+							<img src="{{img}}" alt="Huyends">
+						{{/if}}
+						<div class="f-description">
+							{{description}}
+						</div>
+					</div>
+					<div class="f-post-bot">
+						<!-- <div class="f-rate f-ib">
+							<i class="material-icons">add</i>
+							<span class="f-rate-count js-rate-count  f-ib">821</span>
+							<i class="material-icons">remove</i>
+						</div> -->
+						<!-- <span class="f-comment"><a href="#">421 комментарий</a></span> -->
+						<span>Добавлено <span class="js-add-time">{{dateConverse published}}</span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="page-footer main-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col s10 offset-s1">
+					<h5 class="white-text">Footer Content</h5>
+					<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+					<div class="footer-copyright text-center">
+						<div>© 2018 Copyright Text</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div class="f-to-top">Top</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script src="/files/js/scripts.js"></script>
+	<script src="/files/js/post.js"></script>
+	<script type="text/javascript">
+	  VK.init({
+	    apiId: 6347497
+	  });
+	</script>
+</body>
+</html>

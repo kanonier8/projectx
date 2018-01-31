@@ -3,11 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Хуендс</title>
-	<link rel="stylesheet" href="/static/dist/style.css">
+	<link rel="stylesheet" href="/files/dist/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-	
+	<script src="https://vk.com/js/api/openapi.js?152" type="text/javascript"></script>
+
 </head>
 <body>
 	<nav>
@@ -27,80 +28,56 @@
 		</div>
 	</nav>
 	<div class="container main-container">
-		<div class="row">
-			<div class="f-post col s10 offset-s1">
-				<div class="f-title">Title 1</div>
-				<div class="f-post-body">
-					<img src="https://www.bmw.ua/content/dam/bmw/common/all-models/m-series/m2-coupe/2015/at-a-glance/m2-at-a-glance-design-01.jpg/_jcr_content/renditions/cq5dam.resized.img.1185.large.time1511564672506.jpg" alt="">
-				</div>
-				<div class="f-description">
-					
-				</div>
-				<div class="f-post-bot">
-					<div class="f-rate f-ib">
-						<i class="material-icons">add</i>
-						<span class="f-rate-count js-rate-count  f-ib">821</span>
-						<i class="material-icons">remove</i>
+		<div class="js-post-tmp">
+			{{#each this}}
+				<div class="row">
+					<div class="f-post col s6 offset-s1" data-id="{{_id}}">
+						<div class="f-title"><a href="/post/{{_id}}">{{title}}</a></div>
+						<div class="f-post-body">
+							{{#if img}}
+								<img src="{{img}}" alt="Huyends">
+							{{/if}}
+							<div class="f-description">
+								{{description}}
+							</div>
+						</div>
+						<div class="f-post-bot">
+							<!-- <div class="f-rate f-ib">
+								<i class="material-icons">add</i>
+								<span class="f-rate-count js-rate-count  f-ib">821</span>
+								<i class="material-icons">remove</i>
+							</div> -->
+							<!-- <span class="f-comment"><a href="#">421 комментарий</a></span> -->
+							<span>Добавлено <span class="js-add-time">{{dateConverse published}}</span></span>
+						</div>
 					</div>
-					<span class="f-comment"><a href="#">421 комментарий</a></span>
-					<span>Добавлено <span class="js-add-time">19.05.2016 16:12</span></span>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="f-post col s10 offset-s1">
-				<div class="f-title">Title 1</div>
-				<div class="f-post-body">
-					<img src="https://www.bmw.ua/content/dam/bmw/common/all-models/m-series/m2-coupe/2015/at-a-glance/m2-at-a-glance-design-01.jpg/_jcr_content/renditions/cq5dam.resized.img.1185.large.time1511564672506.jpg" alt="">
-				</div>
-				<div class="f-description">
-					<div class="f-rate f-ib">
-						<button class="f-rate-btn f-rate-plus"></button>
-						<span class="f-rate-count js-rate-count  f-ib">821</span>
-						<button class="f-rate-btn f-rate-minus"></button>
-					</div>
-					<span class="f-comment"><a href="#">421 комментарий</a></span>
-					<span>Добавлено <span class="js-add-time">19.05.2016 16:12</span></span>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="f-post col s10 offset-s1">
-				<div class="f-title">Title 1</div>
-				<div class="f-post-body">
-					<img src="https://www.bmw.ua/content/dam/bmw/common/all-models/m-series/m2-coupe/2015/at-a-glance/m2-at-a-glance-design-01.jpg/_jcr_content/renditions/cq5dam.resized.img.1185.large.time1511564672506.jpg" alt="">
-				</div>
-				<div class="f-description">
-					<div class="f-rate f-ib">
-						<button class="f-rate-btn f-rate-plus"></button>
-						<span class="f-rate-count js-rate-count  f-ib">821</span>
-						<button class="f-rate-btn f-rate-minus"></button>
-					</div>
-					<span class="f-comment"><a href="#">421 комментарий</a></span>
-					<span>Добавлено <span class="js-add-time">19.05.2016 16:12</span></span>
-				</div>
-			</div>
+			{{/each}}
 		</div>
 	</div>
 	<footer class="page-footer main-bg">
 		<div class="container">
 			<div class="row">
-				<div class="col l6 s12">
+				<div class="col s10 offset-s1">
 					<h5 class="white-text">Footer Content</h5>
 					<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+					<div class="footer-copyright text-center">
+						<div>© 2018 Copyright Text</div>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="footer-copyright">
-			<div class="container">
-				© 2018 Copyright Text
-				<a class="grey-text text-lighten-4 right" href="#!">Fuck you!</a>
 			</div>
 		</div>
 	</footer>
 	<div class="f-to-top">Top</div>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-	<script src="/static/js/scripts.js"></script>
+	<script src="/files/js/scripts.js"></script>
+	<script src="/files/js/main.js"></script>
+	<script type="text/javascript">
+	  VK.init({
+	    apiId: 6347497
+	  });
+	</script>
 </body>
 </html>

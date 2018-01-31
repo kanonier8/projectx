@@ -196,7 +196,8 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: left;
-  align-items: center; }
+  align-items: center;
+  margin-top: 20px; }
   .f-post-bot .f-rate {
     display: flex;
     flex-direction: row;

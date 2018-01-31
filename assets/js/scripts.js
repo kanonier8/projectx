@@ -1,5 +1,14 @@
+Handlebars.registerHelper("log", function(something) {
+	console.log(something);
+});
+
+Handlebars.registerHelper('dateConverse', function(date) {
+	date = new Date(date).toString().split(' GM')[0];
+	return date;
+});
+
 $(function(){
-	console.log('jopa');
+
 	$(window).scroll(function () {
 	    var $this = $(this),
 	    	scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
