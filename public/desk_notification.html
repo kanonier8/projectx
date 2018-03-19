@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</head>
+<body>
+	<span>Click Me</span>
+	<script>
+		function myNotification(titleNotify, optionsNotify) {
+
+		  if (!('Notification' in window)) {
+		    alert('Ваш браузер не поддерживает уведомления рабочего стола');
+		  }
+
+		  else if (Notification.permission === 'granted') {
+		    var notification = new Notification(titleNotify, optionsNotify);
+		    notification.onclick = function(){
+		    	window.open('ya.ru')
+		    }
+		  }
+
+		  else if (Notification.permission !== 'denied') {
+		    Notification.requestPermission(function (permission) {
+		      if (permission === 'granted') {
+		        var notification = new Notification(titleNotify, optionsNotify);
+		        notification.onclick = function(){
+		        	window.open('ya.ru')
+		        }
+		      }
+		    });
+		  }
+		  
+		}
+
+		jQuery(document).ready(function($){
+		  $('span').bind('click', function(){
+		    var titleNotify = 'Это Blogpost';
+		    var textNotify = '^_^';
+		    var iconNotify = 'https://www.google.com/a/kedoo.com/images/logo.gif?alpha=1&service=google_default';
+		    var optionsNotify = {
+		      body: textNotify,
+		      icon: iconNotify,
+		      tag: 'blogpost'
+		    }
+		    myNotification(titleNotify, optionsNotify);
+		  });
+		});
+	</script>
+</body>
+</html>

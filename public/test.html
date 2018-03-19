@@ -15,10 +15,11 @@
 		<input type="text" name="title">
 		<textarea name="description"></textarea>
 	</form>
+	<a href="https://accounts.google.com/o/oauth2/auth?redirect_uri=http%3A%2F%2Fgilani.ru%2Ftest&response_type=token&client_id=93707035093-d2nm5ehgr1e06qilqpuivib705qnc0oo.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile" title="Войти через Google">Войти через Google</a>
+	<a href="https://oauth.vk.com/authorize?client_id=6347497&display=popup&redirect_uri=http://gilani.ru/test&response_type=code&v=5.71" title="Войти через Google">Войти VK</a>
 	<input type="file" name="img">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-	<script src="/files/js/scripts.js"></script>
 	<script type="text/javascript">
 	  VK.init({
 	    apiId: 6347497
@@ -38,6 +39,105 @@
 				processData: false
 			})
 		}
+
+		var url =   window.location.href;
+		var hash = window.location.hash;
+		var acToken = '';
+		
+		acToken =   gupToken(url, 'access_token');
+		code = gup(url, 'code');
+		if(hash.indexOf('access_token') > -1){
+			$.ajax({
+				url: '/account/auth',
+				type: 'POST',
+				data: {access_token: acToken}
+			}).then(function(resp){
+				// debugger;
+			},function(resp){
+				// debugger;
+			});
+		}
+		if(code){
+			$.ajax({
+				url: '/account/vauth',
+				type: 'POST',
+				data: {code: code}
+			}).then(function(resp){
+				// debugger;
+			},function(resp){
+				// debugger;
+			});
+		}
+		
+
+		function gupToken(url, name) {
+			name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+			var regexS = "[\\#&]"+name+"=([^&#]*)";
+			var regex = new RegExp( regexS );
+			var results = regex.exec( url );
+			if( results == null )
+				return "";
+			else
+				return results[1];
+		}
+
+		function gup(url, name) {
+		    if (!url) {
+		      url = window.location.href;
+		    }
+		    name = name.replace(/[\[\]]/g, "\\$&");
+		    var regex = new RegExp("[?&]" + name + "(=([^&]*))"),
+		        results = regex.exec(url);
+		    if (!results) return null;
+		    if (!results[2]) return '';
+		    return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+		
 	</script>
+	<br>
+	<br>
+	<br>
+		<span>Click Me</span>
+		<script>
+			function myNotification(titleNotify, optionsNotify) {
+	
+			  if (!('Notification' in window)) {
+				alert('Ваш браузер не поддерживает уведомления рабочего стола');
+			  }
+	
+			  else if (Notification.permission === 'granted') {
+				var notification = new Notification(titleNotify, optionsNotify);
+				notification.onclick = function(){
+					window.open('ya.ru')
+				}
+			  }
+	
+			  else if (Notification.permission !== 'denied') {
+				Notification.requestPermission(function (permission) {
+				  if (permission === 'granted') {
+					var notification = new Notification(titleNotify, optionsNotify);
+					notification.onclick = function(){
+						window.open('ya.ru')
+					}
+				  }
+				});
+			  }
+			  
+			}
+	
+			jQuery(document).ready(function($){
+			  $('span').bind('click', function(){
+				var titleNotify = 'Это Blogpost';
+				var textNotify = '^_^';
+				var iconNotify = 'https://www.google.com/a/kedoo.com/images/logo.gif?alpha=1&service=google_default';
+				var optionsNotify = {
+				  body: textNotify,
+				  icon: iconNotify,
+				  tag: 'blogpost'
+				}
+				myNotification(titleNotify, optionsNotify);
+			  });
+			});
+		</script>
 </body>
 </html>

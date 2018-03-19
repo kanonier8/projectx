@@ -15,7 +15,6 @@ module.exports = function(app, db) {
 	// });
 
 	app.get('/api/post/list', (req, res) => {
-		const details = { '_id': '3cc43e49' };
 		db.collection('posts').find({}).toArray((err, item) => {
 			if (err) {
 				res.send({'error':'An error has occurred'});
@@ -72,4 +71,6 @@ module.exports = function(app, db) {
 			} 
 		});
 	});
+
+	
 };
